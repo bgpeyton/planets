@@ -1,0 +1,71 @@
+Topics for discussion:
+    Quantum mechanics (?)
+        How much detail is necessary? Dependent on the length of my other topics?
+        TD DFT
+    Chiroptical properties (response properties in general?)
+    Many body expansion
+    Basis Set Superposition Error
+        Basis Set Imbalance Error
+        Basis Set Extension Effect
+            Competing viewpoints (Full cluster vs hierarchy scheme [Site-site Function Counterpoise (SSFC) vs Valiron-Mayer Function Counterpoise (VMFC)])
+            Mention current/future work to determine the importance of these in final section (Future work / objectives)     
+
+Questions:
+    Within each topic, should I reserve discussion of results of past work / plans for future work for the final section? 
+    Timeframe? How often can I submit work for you to review? Can I / should I have group members look at short pieces (equations, sentences, etc)?
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+OUTLINE:
+1. Introduction
+    - Overview: introduce the problem and the approach to solving it
+    - Calculation of response properties -> accurate quantum chemical methods -> reduced-scaling
+      -> many body theory -> basis set superposition error
+    - This is one of many "angles of attack" for the problem of accurate response properties
+    - Other options include reduced-scaling CC, special/truncated basis sets, molecular dynamics, etc 
+    - (Check Big Picture on Sirius wiki)
+    - "If one is forced to compute properties of snapshots of explicit solute-solvent systems along an 
+       MD trajectory, then a critical question is the number of solvent molecules that one must include 
+       for a realistic simulation."
+        - MBE reduces the cost of these calculations, and BSSE corrections can (should) improve their accuracy
+2. Theory
+    A. Response Properties
+        - Introduce the importance and difficulty of the problem (justify expensive methods in section B)
+        - Specific attention to chiroptical properties
+        - Too little known about this subject at the present time. READ!
+    B. Accurate Quantum Chemical Methods
+        - Basically introduce and justify my choice in theory despite its cost
+        - Hartree Fock -> TD-DFT 
+        - ------------ -> Full CI -> Coupled Cluster -> EOM-CC (?) + CC-LR (?)
+            - EOM-CC and CC-LR are not /too/ important, can summarize the important aspects in maybe a page
+?       - Maybe a sub-section for each level of theory? 
+    C. Reducing Scaling for Quantum Chemical Methods 
+        a. Adjust the theory: reduced scaling for coupled cluster, TDDFT, etc
+?       b. Adjust the basis: optimized/truncated basis sets for response properties, FVNO's, etc
+?       c. Adjust the model: many-body expansion (maybe talk about QM/MM and implicit solvent methods?)
+    D. Many-body Expansion
+        - Introduce the equations, mention previous convergence issues for properties
+        - Possible culprit: BSSE
+    E. Basis Set Superposition Error
+        a. Counterpoise (CP) Method (Boys-Bernardi 1970)
+            - Generalized to site-site function counterpoise (SSFC) method (Wells-Wilson 1983)
+            - Generally the starting point to other BSSE schemes, uses the full basis
+        b. Valiron-Mayer Function Counterpoise (VMFC) Method (Valiron-Mayer 1997)
+            - Truncated VMFC(n) approaches introduced later (find citation)
+            - Gets rid of Basis Set Imbalance Error (BSIE) and Basis Set Extention Effect (BSEE)
+            - Not trying to approximate SSFC method, believes BSEE to be a problem, hierarchical scheme
+        c. Many-Ghost Many-Body Expansion (MGMBE) (Ouyang-Bettens 2015)
+            - Generalization of Many-Body Counterpoise (MBCP) (Richard-Herbert 2013)
+            - Gets rid of BSIE but keeps BSEE (under the assumption that BSEE is not actally a problem)
+            - Attempting to approximate SFCC
+        d. Ongoing debate: is BSEE good or bad?
+            - Mayer 2017 paper, Liu-Herbert in-review paper (if published)
+                - Need to finish reading these for the most current "verdict"
+3. State of the Union / Goals
+    A. Past work: Mach-Crawford 2014
+    B. Current work: test different BSSE corrections for MBE (show results if available)
+    C. Future work: couple BSSE-corrected MBE to other "big picture" options to match experiment
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
